@@ -9,6 +9,10 @@ config-version: 2
 # This setting configures which "profile" dbt uses for this project.
 profile: 'learn_dbt'
 
+vars:
+  boolean_variable: True
+  constant_variable: 1
+
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
@@ -36,3 +40,5 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+      stackoverflow_user_comments:
+        +enabled: false

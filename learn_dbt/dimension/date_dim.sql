@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 SELECT
   FORMAT_DATE('%F', d) as id,
   d AS full_date,

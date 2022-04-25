@@ -18,3 +18,26 @@ models:
         tests:
           - unique
           - not_null
+  - name: stackoverflow_user_comments
+    description: "Number of comments posted by each user in stackoverflow"
+    columns:
+      - name: user_id
+        description: "User id in stackoverflow which is also the primary key for this table"
+        tests:
+          - unique
+          - not_null
+  - name: dates
+    description: "Dates fetched from dates dimension till today"
+
+sources:
+  - name: sample
+    database: bigquery-public-data  # Tell dbt to look for the source in this database
+    schema: stackoverflow
+    tables:
+      - name: users
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: comments
